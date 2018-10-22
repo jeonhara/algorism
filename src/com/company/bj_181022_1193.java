@@ -18,6 +18,6 @@ public class bj_181022_1193 {
             if(sum > num) break;
         }
         j = sum-i+1;//num-j+1
-        System.out.println((num-j+i)+"/"+(i-num+j));
+        System.out.println((num-j+i)+"/"+(i-num+j));//
     }
 }
