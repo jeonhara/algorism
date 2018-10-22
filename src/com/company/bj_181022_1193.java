@@ -10,14 +10,21 @@ public class bj_181022_1193 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int num = Integer.parseInt(st.nextToken());
-        int i=0, sum=0, j=0;
+        int i=0, start=0, end=0, up=0, down=0;
 
         while(true){
             i++;
-            sum += i;
-            if(sum > num) break;
+            end += i;
+            if(end >= num) break;
         }
-        j = sum-i+1;//num-j+1
-        System.out.println((num-j+i)+"/"+(i-num+j));//
+        start = end-i+1;
+        up = 1;
+        down = i;
+        for(int n=start; n<num; n++){
+            up++;
+            down--;
+        }
+        if(i%2 == 0) System.out.println(up+"/"+down);
+        else System.out.println(down+"/"+up);
     }
 }
