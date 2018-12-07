@@ -10,42 +10,31 @@ public class bj_181022_1475 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         String num = st.nextToken();
-        int[] flag = new int[10];
-        for(int i=0; i<10; i++){
-            flag[i] = 1;
+
+        int[] flag = new int[9];
+
+        for(int i=0; i<num.length(); i++){
+            int nc = num.charAt(i)-'0';
+            if(nc == 9) nc = 6;
+            flag[nc]++;
         }
 
-        int sum = 1;
-        for(int i=0; i<num.length(); i++){
-            if(num.charAt(i)-'0' == 6 || num.charAt(i)-'0' == 9){
-                if(flag[num.charAt(i)-'0'] == 1){
-                    flag[num.charAt(i)-'0'] = 0;
-                }else{
-                    if(num.charAt(i)-'0' == 6 && flag[9] == 1){
-                        flag[9] = 0;
-                    }else if(num.charAt(i)-'0' == 9 && flag[6] == 1){
-                        flag[6] = 0;
-                    }else{
-                        sum++;
-                        if(num.charAt(i)-'0' == 6){
-                            flag[9] = 1;
-                        }else{
-                            flag[6] = 1;
-                        }
-                    }
-                }
-            }else{
-                if(flag[num.charAt(i)-'0'] == 1){
-                    flag[num.charAt(i)-'0'] = 0;
-                }else{
-                    sum++;
-                    for(int j=0; j<10; j++){
-                        flag[j] = 1;
-                    }
-                    flag[num.charAt(i)-'0'] = 0;
-                }
+        int max    = 0;
+        int maxVal = flag[0];
+        for(int i=0; i<8; i++){
+            if(maxVal < flag[i+1]){
+                max = i+1;
+                maxVal = flag[i+1];
             }
         }
-        System.out.println(sum);
+        if(max == 6){
+            if(maxVal%2 == 0){
+                maxVal = maxVal/2;
+            }else{
+                maxVal = maxVal/2 + 1;
+            }
+        }
+
+        System.out.println(maxVal);
     }
 }
