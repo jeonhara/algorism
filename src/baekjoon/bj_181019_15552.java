@@ -1,4 +1,4 @@
-package com.company;
+package baekjoon;
 
 import java.io.*;
 import java.util.StringTokenizer;
