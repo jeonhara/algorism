@@ -3,7 +3,7 @@ package baekjoon;
 import java.io.*;
 import java.util.Arrays;
 
-public class pg_hash_전화번호목록 {
+public class pg_20201215_hash_phone {
     public static void main(String[] args) throws IOException {
         String[] array = new String[3];
         array[0] = "1195524421";
