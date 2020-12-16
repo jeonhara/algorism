@@ -1,4 +1,4 @@
-package baekjoon;
+package programmers;
 
 import java.io.IOException;
 import java.util.HashMap;
